@@ -155,11 +155,11 @@ class _BodyState extends State<Body> {
 
   // Get data from server
   GetData(String user_name, double time) async {
-    try {await requests.get(Uri.parse('http://72.192.95.115:7496/test_api')).timeout(Duration(seconds: 20));}
+    try {await requests.get(Uri.parse('http://YOUR_IP_HERE:7496/test_api')).timeout(Duration(seconds: 20));}
     on TimeoutException {return 'server_down';}
 
     try {
-      requests.Response tweet_response = await requests.get(Uri.parse('http://72.192.95.115:7496/get_ai?username=' + user_name + '&time=' + time.toString()));
+      requests.Response tweet_response = await requests.get(Uri.parse('http://YOUR_IP_HERE:7496/get_ai?username=' + user_name + '&time=' + time.toString()));
       return tweet_response.body;
     }
     catch(e) {
@@ -839,7 +839,6 @@ class _GameState extends State<Game> {
                     child: Container (
                       margin: EdgeInsets.only(top: 4.0),
                       child: Text (
-                        'Final Score:\n${NumQuestionCorrect} / 10',
                         textAlign: TextAlign.center,
                         style: TextStyle (
                           color: ActiveColor,
